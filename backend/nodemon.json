@@ -1,0 +1,15 @@
+{
+  "ignore": [
+    "faiss_index.json",
+    "uploads/**/*",
+    "node_modules/**/*"
+  ],
+  "watch": [
+    "src"
+  ],
+  "ext": "js",
+  "env": {
+    "NODE_ENV": "development"
+  }
+}
+
