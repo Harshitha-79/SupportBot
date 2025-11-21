@@ -51,14 +51,21 @@ export default function Register() {
       }
 
       // Normal registration flow
-      localStorage.setItem("token", res.data.token);
-      if (res.data?.user?.role) localStorage.setItem("role", res.data.user.role);
-      const role = res.data?.user?.role;
-      if (role === "it_support") {
-        window.location.href = "/it";
-      } else {
-        window.location.href = "/dashboard";
+      sessionStorage.setItem("token", res.data.token);
+      if (res.data?.user?.role) {
+        sessionStorage.setItem("role", res.data.user.role);
       }
+      if (res.data?.user?.id) {
+        sessionStorage.setItem("userId", res.data.user.id);
+      }
+      if (res.data?.user?.name) {
+        sessionStorage.setItem("userName", res.data.user.name);
+      }
+      if (res.data?.user?.email) {
+        sessionStorage.setItem("userEmail", res.data.user.email);
+      }
+      const role = res.data?.user?.role;
+      window.location.href = "/dashboard";
     } catch (err) {
       setError(err.response?.data?.message || "Registration failed");
     }

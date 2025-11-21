@@ -6,7 +6,7 @@ export default function Navbar() {
   const userId = sessionStorage.getItem("userId");
   const userName = sessionStorage.getItem("userName");
   const userEmail = sessionStorage.getItem("userEmail");
-  const defaultPath = role === "admin" ? "/admin" : role === "it_support" ? "/it" : "/tickets";
+  const defaultPath = role === "admin" ? "/admin" : role === "it_support" ? "/dashboard" : "/tickets";
   const [unreadCount, setUnreadCount] = useState(0);
   const [userProfile, setUserProfile] = useState(userName ? { name: userName, email: userEmail, role } : null);
 
@@ -97,7 +97,7 @@ export default function Navbar() {
           {role === "it_support" && (
             <>
               <a href="/it" className="nav-link relative">
-                IT Dashboard
+                Assigned Tickets
                 {unreadCount > 0 && (
                   <span className="absolute -top-2 -right-2 bg-red-500 text-white text-xs rounded-full h-5 w-5 flex items-center justify-center min-w-[20px]">
                     {unreadCount > 99 ? '99+' : unreadCount}

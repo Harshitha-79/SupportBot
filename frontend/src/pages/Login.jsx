@@ -28,8 +28,6 @@ export default function Login() {
       const role = res.data?.user?.role;
       if (role === "admin") {
         window.location.href = "/admin";
-      } else if (role === "it_support") {
-        window.location.href = "/it";
       } else {
         window.location.href = "/dashboard";
       }
